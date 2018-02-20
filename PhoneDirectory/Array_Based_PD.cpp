@@ -8,6 +8,7 @@
 #include <fstream>
 #include <istream>
 #include <ostream>
+#include<iostream>
 
 using namespace std;
 
@@ -113,14 +114,34 @@ void Phone_Directory::save()
 	@return That person's name or an empty string
 	if not in the directory
 	*/
+
+//Jordan Bone
 string Phone_Directory::remove_entry(const string& name) // Exercise 1.7: please complete the remove_entry() method - Ed/Kent
 {
+	//Loops through each element of the directory
+	for (int j = 0; j < size-1; j++)
+	{
+		//When the desired name is found, assign that element value to the index
+		if (name == the_directory[j].get_name())
+		{
+			string num = the_directory[j].get_number();
 
-	// Hint: you can use the code below to shift names down in the directory to remove the selected entry specified by "index"
-	// for (int i = index; i < size - 1; i++)
-		// the_directory[i] = the_directory[i + 1];
+			//Go straight to the desired element
+			for (int i = j; i < size - 1; i++)
+			{
+				//Copies the following element in the array over the one that is to be removed
+				the_directory[i] = the_directory[i + 1];
+			}
+			size--;
+			return num;
+		}
 
-	return "";
+		//Return an empty string if the name isnt found
+		else
+		{
+			return "";
+		}
+	}
 }
 
 // Private method implementation
@@ -138,6 +159,7 @@ int Phone_Directory::find(const string& name) const
 	}
 	return -1;
 }
+
 /** Add a new name-number pair to the directory.
 	@param name The name to be added
 	@param number The number to be added

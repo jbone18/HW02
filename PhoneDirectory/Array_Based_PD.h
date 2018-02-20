@@ -56,11 +56,7 @@ private:
 	class Directory_Entry
 	{
 	public:
-		Directory_Entry() 
-		{
-			name = "";
-			number = "";
-		} 
+		Directory_Entry() {} 
 		Directory_Entry(std::string the_name, std::string the_number) 
 		{
 			name = the_name;
@@ -93,12 +89,7 @@ private:
 	/** Removes the entry at the given index.
 		@param index The index of the entry to be removed
 		*/
-	void remove_entry(int index)
-	{
-		int *newArray;
-		int newIndex = (2 * index);
-		newArray = new int[newIndex];
-	}
+	void remove_entry(int index);
 	/** Creates an new array of directory entries with twice the
 		capacity of the current one.
 		*/

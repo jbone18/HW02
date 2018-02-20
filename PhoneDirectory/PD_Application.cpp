@@ -90,8 +90,20 @@ void do_remove_entry(Phone_Directory& the_directory) // Exercise 1.8: please com
 	string name;
 	cout << "Enter name: ";
 	getline(cin, name);
-	// Complete the rest of this function 
-	
+
+	//Removes the string in "name" and assigns the name_removed to the removed string "name"
+	string name_remove = the_directory.remove_entry(name);
+
+	//If "name" is an empty string then the person isnt in the registry
+	if ( name_remove != "")
+	{
+		cout << "Entry has been removed. " << endl;
+	}
+	//The "name" is not found in the directory
+	else
+	{
+		cout << name << " is not in the registery. " << endl;
+	}	
 }
 
 void do_save(Phone_Directory& the_directory)
